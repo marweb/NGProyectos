@@ -1,0 +1,39 @@
+<div class='panel panel-primary' *ngIf='proyecto'>
+  <div class='panel-heading' style='font-size:large'>
+    {{title + ': ' + proyecto.name}}
+  </div>
+
+  <div class='panel-body'>
+    <div class='row'>
+      <div class='col-md-6'>
+        <div class='row'>
+          <div class='col-md-6'>
+                <div align="center"><img src="{{proyecto.image}}" alt="{{proyecto.name}}"></div>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-md-3'>Nombre:</div>
+          <div class='col-md-6'>{{proyecto.name}}</div>
+        </div>
+        <div class='row'>
+          <div class='col-md-3'>Descripción:</div>
+          <div class='col-md-6'>{{proyecto.description}}</div>
+        </div>
+        <div class='row'>
+          <div class='col-md-3'>Stack:</div>
+          <div class='col-md-6'>{{proyecto.stack}}</div>
+        </div>
+        <div class='row'>
+          <div class='col-md-3'>Fecha:</div>
+          <div class='col-md-6'>{{proyecto.fecha}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class='panel-footer'>
+    <a class='btn btn-default btn-large' (click)='onBack()' style='width:80px'>
+      <i class='glyphicon glyphicon-chevron-left'></i> Regresar
+    </a>
+  </div>
+</div>

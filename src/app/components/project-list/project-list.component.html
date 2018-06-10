@@ -1,0 +1,35 @@
+<h1> Listado de Proyectos</h1>
+  <button class="btn btn-success btn-circle pull-right" 
+          (click) = 'add()'
+          title="Agregar proyecto">
+    <i class="glyphicon glyphicon-plus"></i>
+  </button>
+
+<div class="alert-danger">{{errorMessage}}</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Stack</th>
+            <th>Fecha</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pro of projects"
+            [ngClass]="{'btn-primary': pro.id == currentId }">
+            <td>{{pro.id}}</td>
+            <td>{{pro.name}}</td>
+            <td>{{pro.description}}</td>
+            <td>{{pro.stack}}</td>
+            <td>{{pro.fecha}}</td>
+            <td style="width: 70px;">
+                <i class="glyphicon glyphicon-edit pointer" (click)="edit(pro.id)" title="Editar"></i>
+                <i class="glyphicon glyphicon-trash pointer" (click)="delete(pro.id)"  title="Eliminar"></i>
+            </td>
+        </tr>
+    </tbody>
+</table>

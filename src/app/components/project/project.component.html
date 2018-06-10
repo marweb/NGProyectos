@@ -1,0 +1,84 @@
+<h1>{{title}}</h1>
+<hr>
+<div>{{errorMessage}}</div>
+<form [formGroup]="projectForm" (ngSubmit)="save()" novalidate>
+    <div class="form-group row">
+        <label for="" class="col-md-12">Nombre</label>
+        <div class="col-md-4">
+            <input type="text"  class="form-control"
+                   formControlName="name">
+        </div>
+        <div class="col-md-6">
+            <div class="error" *ngIf="name.invalid && (name.dirty || submitted)">
+                <div *ngIf="name.errors.required">
+                   Nombre es requerido
+                </div>
+                <div *ngIf="name.errors.minlength">
+                   Min. 3 caracteres
+                </div>
+                <div *ngIf="name.errors.maxlength">
+                    No mas de 30 caracteres
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="" class="col-md-12">Descripcion</label>
+        <div class="col-md-4">
+            <input type="text" class="form-control"
+                    formControlName="description" >
+        </div>
+        <div class="col-md-6">
+            <div class="error" *ngIf="description.invalid && (description.dirty || submitted)">
+                 <div *ngIf="description.errors.required">
+                    Descripcion es requerido
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="" class="col-md-12">Stack</label>
+        <div class="col-md-4">
+            <input type="text" class="form-control"
+                    formControlName="stack" >
+        </div>
+        <div class="col-md-6">
+            <div class="error" *ngIf="stack.invalid && (stack.dirty || submitted)">
+                 <div *ngIf="stack.errors.required">
+                    Stack es requerido
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="" class="col-md-12">Imagen</label>
+        <div class="col-md-4">
+            <input type="text" class="form-control"
+                    formControlName="image" >
+        </div>
+        <div class="col-md-6">
+            <div class="error" *ngIf="image.invalid && (image.dirty || submitted)">
+                 <div *ngIf="image.errors.required">
+                    Imagen es requerido
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-md-12">
+           <input type="submit" 
+                  class="btn btn-primary" 
+                  value="Editar" *ngIf="id"/>
+                  <input type="button" 
+                   class="btn btn-primary" 
+                   value="Agregar"
+                   *ngIf="!id"
+                   (click)="agregar()">
+            <input type="button" 
+                   class="btn btn-warning" 
+                   value="Cancelar"
+                   (click)="cancel()">
+      </div>
+
+    </div>
+</form>
